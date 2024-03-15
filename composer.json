@@ -1,0 +1,9 @@
+{
+    "name": "autoload/api-chatbot",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}

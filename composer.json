@@ -1,9 +1,15 @@
 {
-    "name": "autoload/api-chatbot",
+    "name": "maxence/api-chatbot",
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "Maxence\\ApiChatbot\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "Peaumm",
+            "email": "maxence.fouquet@gmail.com"
+        }
+    ],
     "require": {}
 }

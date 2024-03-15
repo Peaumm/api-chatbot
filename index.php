@@ -2,12 +2,10 @@
 
 require 'vendor/autoload.php';
 
-$availablesRoutes = 
-['homepage',
-];
+use App\Router;
+use App\Controllers\User;
 
-$route = 'homepage';
-
-if (isset($_GET['page']) && in_array($_GET['page'],$availablesRoutes)) {
-    $route = $_GET['page'];
-}
+new Router([
+  'user/:id' => new User,
+  'message/:id' => 'Message',
+]);

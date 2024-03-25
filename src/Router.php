@@ -46,13 +46,28 @@ class Router {
   }
 
   protected function run() {
+    (bool) $is404 = true;
     (string) $url = parse_url($this->url, PHP_URL_PATH);
 
     foreach ($this->routes as $route => $controller) {
       if ($this->matchRule($url, $route)) {
         (array) $params = $this->extractParams($url, $route);
         new $controller($params);
+
+        $is404 = false;
+
+        break;
       }
+    }
+
+    if ($is404) {
+      header('Access-Control-Allow-Origin: *');
+      header('Content-type: application/json; charset=utf-8');
+
+      echo json_encode([
+        'code' => '404',
+        'message' => 'Not Found'
+      ]);
     }
   }
 }

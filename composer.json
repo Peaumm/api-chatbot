@@ -2,7 +2,8 @@
     "name": "maxence/api-chatbot",
     "autoload": {
         "psr-4": {
-            "Maxence\\ApiChatbot\\": "src/"
+            "App\\": "src/",
+            "App\\Controllers\\": "src/controllers/"
         }
     },
     "authors": [

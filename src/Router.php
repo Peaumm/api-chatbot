@@ -47,11 +47,10 @@ class Router {
 
   protected function run() {
     (string) $url = parse_url($this->url, PHP_URL_PATH);
- 
+
     foreach ($this->routes as $route => $controller) {
       if ($this->matchRule($url, $route)) {
         (array) $params = $this->extractParams($url, $route);
-        var_dump($params);
       }
     }
   }

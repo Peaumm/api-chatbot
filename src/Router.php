@@ -51,6 +51,7 @@ class Router {
     foreach ($this->routes as $route => $controller) {
       if ($this->matchRule($url, $route)) {
         (array) $params = $this->extractParams($url, $route);
+        new $controller($params);
       }
     }
   }

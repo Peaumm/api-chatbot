@@ -1,16 +1,17 @@
 {
-    "name": "maxence/api-chatbot",
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/",
-            "App\\Controllers\\": "src/controllers/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Peaumm",
-            "email": "maxence.fouquet@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "maxence/api-chatbot",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "App\\Controllers\\": "src/controllers/",
+      "App\\Model\\": "src/models/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Peaumm",
+      "email": "maxence.fouquet@gmail.com"
+    }
+  ],
+  "require": {}
 }

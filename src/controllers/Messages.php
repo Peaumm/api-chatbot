@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 use \PDO;
+use App\Models\Connect;
 
-class Messages {
+class Messages extends Connect{
   protected array $params;
   protected string $reqMethod;
 
@@ -15,16 +16,18 @@ class Messages {
   }
 
   function getBDD($id) {
-    $connexion=getConnect();
-    $req = $connexion->prepare('SELECT message, name, date FROM messages WHERE id=:id;');
+    $req = parent::__construct()->prepare('SELECT message, name, date FROM messages WHERE id=:id;');
     $req->bindValue(':id', $id, PDO::PARAM_STR);
     $req->execute();
     $resultat = $req->fetch(PDO::FETCH_ASSOC);
-    $datas =[];
-    foreach ($resultat as $key => $value) {
-      $datas[$key] = $value;
-    }
+
+    $datas = json_encode($resultat);
     var_dump($datas);
+    return $datas;
+    // foreach ($resultat as $key => $value) {
+    //   $datas[$key] = $value;
+    // }
+    // var_dump($datas);
   }
 
   protected function getMessages() {

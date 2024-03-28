@@ -1,7 +1,6 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'src/models/connect.php';
 
 use App\Router;
 use App\Controllers\User;

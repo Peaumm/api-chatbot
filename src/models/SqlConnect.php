@@ -5,6 +5,7 @@ namespace App\Models;
 use \PDO;
 
 class SqlConnect {
+  protected string $system_info;
   public object $db;
   private string $host;
   private string $port;
@@ -13,11 +14,26 @@ class SqlConnect {
   private string $user;
 
   public function __construct() {
-    $this->host = '127.0.0.1';
-    $this->port = '3306';
-    $this->dbname = 'Api-chatbot';
-    $this->user = 'maxence';
-    $this->password = 'Max45430';
+    $system_info = php_uname();
+    if (strpos($system_info, 'Windows') !== false) {
+      $this->host = '127.0.0.1';
+      $this->port = '3306';
+      $this->dbname = 'Api-chatbot';
+      $this->user = 'maxence';
+      $this->password = 'Max45430';
+    } elseif (strpos($system_info, 'Darwin') !== false) {
+      $this->host = '127.0.0.1';
+      $this->port = '3306';
+      $this->dbname = 'Api-chatbot';
+      $this->user = 'maxence';
+      $this->password = 'Max45430';
+    } else {
+      $this->host = '127.0.0.1';
+      $this->port = '3306';
+      $this->dbname = 'Api-chatbot';
+      $this->user = 'maxence';
+      $this->password = 'Max45430';
+    }
 
     $this->db = new PDO(
       'mysql:host='.$this->host.';port='.$this->port.';dbname='.$this->dbname,
